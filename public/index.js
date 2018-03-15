@@ -22,9 +22,16 @@ app.post('/send', (req, res) => {
 	}
 
 	mailer.sendMessage(message).then(() => {
-		res.json({
-			message: 'Mail Sent!'
-		})
+		res
+			.json({
+				message: 'Mail Sent!'
+			})
+			.catch(error => {
+				res.status(500)
+				res.json({
+					error
+				})
+			})
 	})
 })
 
