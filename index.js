@@ -7,7 +7,7 @@ const app = express()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(express.static('./public'))
+// app.use(express.static('./public'))
 
 const mailer = require('./mailer')
 
@@ -22,16 +22,9 @@ app.post('/send', (req, res) => {
 	}
 
 	mailer.sendMessage(message).then(() => {
-		res
-			.json({
-				message: 'Mail Sent!'
-			})
-			.catch(error => {
-				res.status(500)
-				res.json({
-					error
-				})
-			})
+		res.json({
+			message: 'Mail Sent!'
+		})
 	})
 })
 
