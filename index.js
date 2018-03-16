@@ -27,7 +27,7 @@ app.post('/send', (req, res) => {
 		.sendMessage(message)
 		.then(() => {
 			res.json({
-				message: 'Email sent.'
+				message: 'MESSAGE SENT!'
 			})
 		})
 		.catch(error => {
