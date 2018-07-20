@@ -1,48 +1,52 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+var express = require("express");
+var router = express.Router();
+var nodemailer = require("nodemailer");
+const creds = require("../config/config");
 
-require("dotenv").config();
+var transport = {
+  host: "smtp.gmail.com",
+  auth: {
+    user: process.env.GMAIL_ACCOUNT,
+    pass: process.env.GMAIL_PASSWORD
+  }
+};
 
-const app = express();
+var transporter = nodemailer.createTransport(transport);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static("./public"));
-app.use(cors());
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take messages");
+  }
+});
 
-const mailer = require("./mailer");
+router.post("/send", (req, res, next) => {
+  var content = `From: ${req.body.signupEmail}\n
+    Sent: ${new Date()} \n
+    Name: ${req.body.signupName} \n
+  Phone: ${req.body.signupPhone} \n
+  CompanyName: ${req.body.signupCoName} \n
+  NumberofEmployees: ${req.body.EmployeeNumber} \n `;
 
-app.post("/send", (req, res) => {
-  const message = {
+  var mail = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
     subject: "Site Free Guide Form",
-    text: `From: ${req.body.signupEmail}\n
-			Sent: ${new Date()} \n
-			Name: ${req.body.signupName} \n
-		Phone: ${req.body.signupPhone} \n
-		CompanyName: ${req.body.signupCoName} \n
-		NumberofEmployees: ${req.body.EmployeeNumber} \n `
+    text: content
   };
 
-  mailer
-    .sendMessage(message)
-    .then(() => {
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
       res.json({
-        message: "MESSAGE SENT!"
+        msg: "fail"
       });
-    })
-    .catch(error => {
-      res.status(500);
+    } else {
       res.json({
-        error: error
+        msg: "success"
       });
-    });
+    }
+  });
 });
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
-});
+module.exports = router;
