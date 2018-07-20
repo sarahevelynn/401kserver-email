@@ -22,8 +22,8 @@ app.post("/send", (req, res) => {
 			Sent: ${new Date()} \n
 			Name: ${req.body.signupName} \n
 		Phone: ${req.body.signupPhone} \n
-		Company Name: ${req.body.signupCoName} \n
-		Number of Employees: ${req.body.EmployeeNumber} \n `
+		CompanyName: ${req.body.signupCoName} \n
+		NumberofEmployees: ${req.body.EmployeeNumber} \n `
   };
 
   mailer
