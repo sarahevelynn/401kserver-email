@@ -1,14 +1,12 @@
 const nodemailer = require('nodemailer')
 
-const creds = require('./config/config');
-
 let smtpConfig = {
 	host: 'smtp.gmail.com',
 	port: 465,
 	secure: true,
 	auth: {
-		user: creds.GMAIL_ACCOUNT,
-		pass: creds.GMAIL_PASSWORD
+		user: process.env.GMAIL_ACCOUNT,
+		pass: process.env.GMAIL_PASSWORD
 	}
 }
 
