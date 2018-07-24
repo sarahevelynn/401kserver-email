@@ -22,7 +22,6 @@ app.post("/send", (req, res) => {
 
   const message = {
     from: process.env.FROM_EMAIL,
-    to: process.env.TO_EMAIL,
     subject: "Site Contact Form",
     text: `name: ${name} \n email: ${email} \n mail: ${content} `
   };
