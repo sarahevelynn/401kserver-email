@@ -1,14 +1,14 @@
 const nodemailer = require('nodemailer')
 
-require('dotenv').config()
+const creds = require('./config/config');
 
 let smtpConfig = {
 	host: 'smtp.gmail.com',
 	port: 465,
 	secure: true,
 	auth: {
-		user: process.env.GMAIL_ACCOUNT,
-		pass: process.env.GMAIL_PASSWORD
+		user: creds.GMAIL_ACCOUNT,
+		pass: creds.GMAIL_PASSWORD
 	}
 }
 
@@ -27,4 +27,3 @@ module.exports = {
 		})
 	}
 }
-© 2018 Git

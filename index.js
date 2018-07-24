@@ -1,49 +1,49 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-require('dotenv').config()
+require("dotenv").config();
 
-const app = express()
+const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(express.static('./public'))
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static("./public"));
+app.use(cors());
 
-const mailer = require('./mailer')
+const mailer = require("./mailer");
 
-app.post('/send', (req, res) => {
-	const message = {
-		from: process.env.FROM_EMAIL,
-		to: process.env.TO_EMAIL,
-		subject: 'Site Contact Form',
-		text: `From: ${req.body.signupEmail}\n Sent: ${new Date()} \n
-    Name: ${req.body.signupName} \n
-    Phone: ${req.body.signupPhone} \n
-    CompanyName: ${
-			req.body.signupCoName
-		}
-    EmployeeNumber: ${req.body.EmployeeNumber} \n `
-	}
+app.post("/send", (req, res) => {
+  var name = req.body.name;
+  var email = req.body.email;
+	var mail = req.body.message
+	var content = `name: ${name} \n email: ${email} \n mail: ${content} `
 
-	mailer
-		.sendMessage(message)
-		.then(() => {
-			res.json({
-				message: 'MESSAGE SENT!'
-			})
-		})
-		.catch(error => {
-			res.status(500)
-			res.json({
-				error: error
-			})
-		})
-})
 
-const port = process.env.PORT || 3000
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "Site Contact Form",
+    text: `name: ${name} \n email: ${email} \n mail: ${content} `
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+const port = process.env.PORT || 3002;
 
 app.listen(port, () => {
-	console.log(`Listening on ${port}`)
-})
+  console.log(`Listening on ${port}`);
+});
