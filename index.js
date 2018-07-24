@@ -13,11 +13,39 @@ app.use(cors());
 
 const mailer = require("./mailer");
 
-app.post("/sendBasic", (req, res) => {
+app.post("/welcomePage", (req, res) => {
   const message = {
 		from: process.env.FROM_EMAIL,
 		to: process.env.TO_EMAIL,
-    subject: "Basic Inforamtion Site Contact Form",
+    subject: "Welcome Page Contact Form",
+    text: `From: ${req.body.signupEmail}\n
+    Sent: ${new Date()} \n
+    Name: ${req.body.signupName} \n
+    Phone: ${req.body.signupPhone} \n
+    Company Name: ${req.body.signupCoName} \n
+    Number of Employees: ${req.body.EmployeeNumber}`
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+app.post("/freeGuide", (req, res) => {
+  const message = {
+		from: process.env.FROM_EMAIL,
+		to: process.env.TO_EMAIL,
+    subject: "Welcome Page Contact Form",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
     Name: ${req.body.signupName} \n
