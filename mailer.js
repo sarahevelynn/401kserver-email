@@ -7,8 +7,8 @@ let transport = {
 	port: 465,
 	secure: true,
 	auth: {
-		GMAIL_ACCOUNT: process.env.GMAIL_ACCOUNT,
-		GMAIL_PASSWORD: process.env.GMAIL_PASSWORD
+		user: process.env.USER,
+		pass: process.env.PASS
 	}
 }
 
