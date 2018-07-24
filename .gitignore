@@ -4,3 +4,4 @@ module.exports = {
     TO_EMAIL: 'sarahevelynnjohnson@gmail.com',
     FROM_EMAIL: 'sarahevelynnjohnson@gmail.com'
 }
+node_modules
