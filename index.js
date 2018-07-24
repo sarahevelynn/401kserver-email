@@ -1,44 +1,53 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+var express = require("express");
 var router = express.Router();
+var nodemailer = require("nodemailer");
 
 require("dotenv").config();
 
-const app = express();
+let transport = {
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.GMAIL_ACCOUNT,
+    pass: process.env.GMAIL_PASSWORD
+  }
+};
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static("./public"));
-app.use(cors());
+let transporter = nodemailer.createTransport(transport);
 
-const mailer = require("./mailer");
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take messages");
+  }
+});
 
-router.post('/send', (req, res, next) => {
-  const message = {
-    subject: "Site Contact Form",
-    text: `From: ${req.body.email}\n Sent: ${new Date()} \n Name: ${
-      req.body.name
-    } \n Message: ${req.body.message}`
+router.post("/send", (req, res, next) => {
+  var name = req.body.name;
+  var email = req.body.email;
+  var message = req.body.message;
+  var content = `name: ${name} \n email: ${email} \n message: ${content} `;
+
+  var mail = {
+    from: name,
+    to: "RECEIVING_EMAIL_ADDRESS_GOES_HERE", //Change to email address that you want to receive messages on
+    subject: "New Message from Contact Form",
+    text: content
   };
 
-	mailer
-	.sendMessage(message)
-	.then(() => {
-		res.json({
-			message: 'MESSAGE SENT!'
-		})
-	})
-	.catch(error => {
-		res.status(500)
-		res.json({
-			error: error
-		})
-	})
-})
-
-const port = process.env.PORT || 3002;
-
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        msg: "fail"
+      });
+    } else {
+      res.json({
+        msg: "success"
+      });
+    }
+  });
 });
+
+module.exports = router;
