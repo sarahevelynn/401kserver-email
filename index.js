@@ -21,19 +21,11 @@ app.post("/send", (req, res) => {
     } \n Message: ${req.body.message}`
   };
 
-  mailer
-    .sendMessage(message)
-    .then(() => {
-      res.json({
-        message: "MESSAGE SENT!"
-      });
-    })
-    .catch(error => {
-      res.status(500);
-      res.json({
-        error: error
-      });
+  mailer.sendMessage(message).then(() => {
+    res.json({
+      message: "MESSAGE SENT!"
     });
+  });
 });
 
 const port = process.env.PORT || 3002;

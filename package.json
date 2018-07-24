@@ -1,34 +1,19 @@
 {
-  "name": "saveaway-email-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Piglacquer/bifflecodes-server.git"
-  },
-  "author": "SarahEvelynn Johnson",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Piglacquer/bifflecodes-server/issues"
-  },
-  "homepage": "https://github.com/Piglacquer/bifflecodes-server#readme",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "cors": "^2.8.4",
-    "debug": "^3.1.0",
-    "dotenv": "^5.0.1",
-    "express": "^4.16.3",
-    "jade": "^1.11.0",
-    "morgan": "^1.9.0",
-    "nodemailer": "^4.6.3",
-    "pug": "^2.0.3",
-    "serve-favicon": "^2.5.0"
-  },
-  "devDependencies": {}
+	"name": "bifflecodes-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"cors": "^2.8.4",
+		"dotenv": "^5.0.1",
+		"express": "^4.16.3",
+		"nodemailer": "^4.6.3"
+	}
 }
