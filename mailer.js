@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer')
 
-let smtpConfig = {
+let transport = {
+	pool: true,
 	host: 'smtp.gmail.com',
 	port: 465,
 	secure: true,
@@ -10,7 +11,15 @@ let smtpConfig = {
 	}
 }
 
-let transporter = nodemailer.createTransport(smtpConfig)
+let transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+});
 
 module.exports = {
 	sendMessage(message) {

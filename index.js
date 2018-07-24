@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+var router = express.Router();
 
 require("dotenv").config();
 
@@ -13,7 +14,7 @@ app.use(cors());
 
 const mailer = require("./mailer");
 
-app.post("/send", (req, res) => {
+router.post('/send', (req, res, next) => {
   const message = {
     subject: "Site Contact Form",
     text: `From: ${req.body.email}\n Sent: ${new Date()} \n Name: ${
