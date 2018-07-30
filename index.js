@@ -15,8 +15,8 @@ const mailer = require("./mailer");
 
 app.post("/welcomePage", (req, res) => {
   const message = {
-		from: process.env.FROM_EMAIL,
-		to: process.env.TO_EMAIL,
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
     subject: "Welcome Page Contact Form",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
@@ -43,8 +43,8 @@ app.post("/welcomePage", (req, res) => {
 
 app.post("/freeGuide", (req, res) => {
   const message = {
-		from: process.env.FROM_EMAIL,
-		to: process.env.TO_EMAIL,
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
     subject: "Welcome Page Contact Form",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
