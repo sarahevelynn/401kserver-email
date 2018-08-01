@@ -69,6 +69,48 @@ app.post("/freeGuide", (req, res) => {
     });
 });
 
+app.post("/companyEnrollment", (req, res) => {
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "Company Enrollment Information",
+    text: `From: ${req.body.signupEmail}\n
+    Sent: ${new Date()} \n
+    Name: ${req.body.signupName} \n
+    Phone: ${req.body.signupPhone} \n
+    Street Address: ${req.body.signupAdressStreet} \n
+    Apartment: ${req.body.signupAdressApt} \n
+    City: ${req.body.signupAdressCity} \n
+    State: ${req.body.signupAdressState} \n
+    Zip: ${req.body.signupAdressZip} \n
+    Admin Name: ${req.body.adminName} \n
+    Admin Phone: ${req.body.adminPhone} \n
+    Company EIN: ${req.body.companyEIN} \n
+    Business Hours: ${req.body.businessHours} \n
+    Auto Enroll: ${req.body.AutoEnroll} \n
+    Enrollment Percentage: ${req.body.enrollmentPercentage} \n
+    Plan Type: ${req.body.planType} \n
+    Payroll Provider: ${req.body.payrollProvider} \n
+    Payment Cycle: ${req.body.paymentCycle} \n
+    Will this person be admin: ${req.body.Admin} \n
+    Company Plan Status: ${req.body.PlanStatus}`
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
 const port = process.env.PORT || 3002;
 
 app.listen(port, () => {
