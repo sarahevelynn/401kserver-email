@@ -71,7 +71,6 @@ app.post("/freeGuide", (req, res) => {
 
 app.post("/companyEnrollment", (req, res) => {
   const message = {
-    from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
     subject: "Company Enrollment Information",
     text: `From: ${req.body.signupEmail}\n
