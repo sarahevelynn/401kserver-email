@@ -45,7 +45,7 @@ app.post("/freeGuide", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "Welcome Page Contact Form",
+    subject: "Free Guide Signup Info",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
     Name: ${req.body.signupName} \n
@@ -73,7 +73,7 @@ app.post("/companyEnrollment", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "Company Enrollment Information",
+    subject: "New Company Enrollment",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
     Name: ${req.body.signupName} \n
@@ -115,7 +115,7 @@ app.post("/basicInfo", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "Company Enrollment Information",
+    subject: "New Account Created",
     text: `From: ${req.body.CompanyEmail}\n
     Sent: ${new Date()} \n
     Name: ${req.body.FullName} \n
