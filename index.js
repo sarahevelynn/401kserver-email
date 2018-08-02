@@ -71,6 +71,7 @@ app.post("/freeGuide", (req, res) => {
 
 app.post("/companyEnrollment", (req, res) => {
   const message = {
+    from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
     subject: "Company Enrollment Information",
     text: `From: ${req.body.signupEmail}\n
@@ -91,6 +92,40 @@ app.post("/companyEnrollment", (req, res) => {
     Plan Type: ${req.body.planType} \n
     Payroll Provider: ${req.body.payrollProvider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
+    Will this person be admin: ${req.body.Admin} \n
+    Company Plan Status: ${req.body.PlanStatus}`
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+app.post("/basicInfo", (req, res) => {
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "Company Enrollment Information",
+    text: `From: ${req.body.CompanyEmail}\n
+    Sent: ${new Date()} \n
+    Name: ${req.body.FullName} \n
+    Company Name: ${req.body.CompanyName} \n
+    Phone: ${req.body.CompanyPhone} \n
+    State of Operation: ${req.body.State} \n
+    Number of Employees: ${req.body.EmployeeNumber} \n
+    Do they have payroll: ${req.body.payroll} \n
+    Payroll provider: ${req.body.provider} \n
+    How did they hear about SaveAway401k?: ${req.body.heardAbout} \n
     Will this person be admin: ${req.body.Admin} \n
     Company Plan Status: ${req.body.PlanStatus}`
   };
