@@ -89,7 +89,7 @@ app.post("/companyEnrollment", (req, res) => {
     Auto Enroll: ${req.body.AutoEnroll} \n
     Enrollment Percentage: ${req.body.enrollmentPercentage} \n
     Plan Type: ${req.body.planType} \n
-    Payroll Provider: ${req.body.payrollProvider} \n
+    Payroll Provider: ${req.body.provider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
