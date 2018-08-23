@@ -76,15 +76,14 @@ app.post("/companyEnrollment", (req, res) => {
     subject: "New Company Enrollment",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
-    Name: ${req.body.signupName} \n
-    Phone: ${req.body.signupPhone} \n
+    Company Name: ${req.body.companyName} \n
+    Account Person's Name: ${req.body.accountName} \n
+    Company Phone: ${req.body.companyPhone} \n
     Street Address: ${req.body.signupAdressStreet} \n
     Apartment: ${req.body.signupAdressApt} \n
     City: ${req.body.signupAdressCity} \n
     State: ${req.body.signupAdressState} \n
     Zip: ${req.body.signupAdressZip} \n
-    Admin Name: ${req.body.adminName} \n
-    Admin Phone: ${req.body.adminPhone} \n
     Company EIN: ${req.body.companyEIN} \n
     Business Hours: ${req.body.businessHours} \n
     Auto Enroll: ${req.body.AutoEnroll} \n
@@ -93,6 +92,10 @@ app.post("/companyEnrollment", (req, res) => {
     Payroll Provider: ${req.body.payrollProvider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
     Will this person be admin: ${req.body.Admin} \n
+    If no, this is the admin's information (will be blank if yes):
+    Admin Name: ${req.body.AdminName} \n
+    Admin Phone: ${req.body.AdminPhone} \n
+    Admin Email: ${req.body.AdminEmail} \n
     Company Plan Status: ${req.body.PlanStatus}`
   };
 
@@ -127,6 +130,10 @@ app.post("/basicInfo", (req, res) => {
     Payroll provider: ${req.body.provider} \n
     How did they hear about SaveAway401k?: ${req.body.heardAbout} \n
     Will this person be admin: ${req.body.Admin} \n
+    If no, this is the admin's information (will be blank if yes):
+    Admin Name: ${req.body.AdminName} \n
+    Admin Phone: ${req.body.AdminPhone} \n
+    Admin Email: ${req.body.AdminEmail} \n
     Company Plan Status: ${req.body.PlanStatus}`
   };
 
@@ -152,15 +159,14 @@ app.post("/companyEnrollment1", (req, res) => {
     subject: "New Company Enrollment",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
-    Name: ${req.body.signupName} \n
-    Phone: ${req.body.signupPhone} \n
+    Company Name: ${req.body.companyName} \n
+    Account Person's Name: ${req.body.accountName} \n
+    Company Phone: ${req.body.companyPhone} \n
     Street Address: ${req.body.signupAdressStreet} \n
     Apartment: ${req.body.signupAdressApt} \n
     City: ${req.body.signupAdressCity} \n
     State: ${req.body.signupAdressState} \n
     Zip: ${req.body.signupAdressZip} \n
-    Admin Name: ${req.body.adminName} \n
-    Admin Phone: ${req.body.adminPhone} \n
     Company EIN: ${req.body.companyEIN} \n
     Business Hours: ${req.body.businessHours}`
   };
@@ -215,6 +221,10 @@ app.post("/companyEnrollment3", (req, res) => {
     subject: "New Company Enrollment",
     text: `From: the previous email
     Will this person be admin: ${req.body.Admin} \n
+    If no, this is the admin's information (will be blank if yes):
+    Admin Name: ${req.body.AdminName} \n
+    Admin Phone: ${req.body.AdminPhone} \n
+    Admin Email: ${req.body.AdminEmail} \n
     Company Plan Status: ${req.body.PlanStatus}`
   };
 
@@ -295,6 +305,10 @@ app.post("/basicInfo3", (req, res) => {
     subject: "New Account Created",
     text: `From: the previous submission
     Will this person be admin: ${req.body.Admin} \n
+    If no, this is the admin's information (will be blank if yes):
+    Admin Name: ${req.body.AdminName} \n
+    Admin Phone: ${req.body.AdminPhone} \n
+    Admin Email: ${req.body.AdminEmail} \n
     Company Plan Status: ${req.body.PlanStatus}`
   };
 
