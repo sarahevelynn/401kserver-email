@@ -73,7 +73,7 @@ app.post("/companyEnrollment", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "New Company Enrollment",
+    subject: "New Company Enrollment - completed",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
     Company Name: ${req.body.companyName} \n
@@ -118,7 +118,7 @@ app.post("/basicInfo", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "New Account Created",
+    subject: "New Account Created - completed",
     text: `From: ${req.body.CompanyEmail}\n
     Sent: ${new Date()} \n
     Name: ${req.body.FullName} \n
@@ -156,7 +156,7 @@ app.post("/companyEnrollment1", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "New Company Enrollment",
+    subject: "New Company Enrollment - mid way",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
     Company Name: ${req.body.companyName} \n
@@ -201,7 +201,7 @@ app.post("/basicInfo1", (req, res) => {
   const message = {
     from: process.env.FROM_EMAIL,
     to: process.env.TO_EMAIL,
-    subject: "New Account Created",
+    subject: "New Account Created - mid way",
     text: `From: ${req.body.CompanyEmail}\n
     Sent: ${new Date()} \n
     Name: ${req.body.FullName} \n
