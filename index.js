@@ -86,11 +86,15 @@ app.post("/companyEnrollment", (req, res) => {
     Zip: ${req.body.signupAdressZip} \n
     Company EIN: ${req.body.companyEIN} \n
     Business Hours: ${req.body.businessHours} \n
+    _________________________________________________
+
     Auto Enroll: ${req.body.AutoEnroll} \n
     Enrollment Percentage: ${req.body.enrollmentPercentage} \n
     Plan Type: ${req.body.planType} \n
     Payroll Provider: ${req.body.provider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
+    _________________________________________________
+
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
@@ -126,15 +130,22 @@ app.post("/basicInfo", (req, res) => {
     Phone: ${req.body.CompanyPhone} \n
     State of Operation: ${req.body.State} \n
     Number of Employees: ${req.body.EmployeeNumber} \n
+    _________________________________________________
+
     Do they have payroll: ${req.body.payroll} \n
     Payroll provider: ${req.body.provider} \n
     How did they hear about SaveAway401k?: ${req.body.heardAbout} \n
+    _________________________________________________
+
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
     Admin Phone: ${req.body.AdminPhone} \n
     Admin Email: ${req.body.AdminEmail} \n
-    Company Plan Status: ${req.body.PlanStatus}`
+    Company Plan Status: ${req.body.PlanStatus} \n
+    _________________________________________________
+    
+    Did they agree to the terms and creat an account?  ${req.body.checked}`
   };
 
   mailer
