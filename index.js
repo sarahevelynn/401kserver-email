@@ -213,20 +213,33 @@ app.post("/basicInfo1", (req, res) => {
     subject: "New Account Created - mid way",
     text: `From: ${req.body.CompanyEmail}\n
     Sent: ${new Date()} \n
+    _________________________________________________
+              ***Form Section One Below***
+    _________________________________________________
     Name: ${req.body.FullName} \n
     Company Name: ${req.body.CompanyName} \n
     Phone: ${req.body.CompanyPhone} \n
     State of Operation: ${req.body.State} \n
     Number of Employees: ${req.body.EmployeeNumber} \n
+    _________________________________________________
+              ***Form Section Two Below***
+    _________________________________________________
     Do they have payroll: ${req.body.payroll} \n
     Payroll provider: ${req.body.provider} \n
     How did they hear about SaveAway401k?: ${req.body.heardAbout} \n
+    _________________________________________________
+              ***Form Section Three Below***
+    _________________________________________________
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
     Admin Phone: ${req.body.AdminPhone} \n
     Admin Email: ${req.body.AdminEmail} \n
-    Company Plan Status: ${req.body.PlanStatus}`
+    Company Plan Status: ${req.body.PlanStatus} \n
+    _________________________________________________
+              ***Confirmation of Account Creation***
+    _________________________________________________
+    Did they agree to the terms and creat an account?${req.body.checked}`
   };
 
   mailer
