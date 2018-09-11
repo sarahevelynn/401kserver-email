@@ -168,12 +168,58 @@ app.post("/companyEnrollment1", (req, res) => {
     State: ${req.body.signupAdressState} \n
     Zip: ${req.body.signupAdressZip} \n
     Company EIN: ${req.body.companyEIN} \n
-    Business Hours: ${req.body.businessHours} \n
+    Business Hours: ${req.body.businessHours}`
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+app.post("/companyEnrollment2", (req, res) => {
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "New Company Enrollment",
+    text: `From: the previous email.
     Auto Enroll: ${req.body.AutoEnroll} \n
     Enrollment Percentage: ${req.body.enrollmentPercentage} \n
     Plan Type: ${req.body.planType} \n
-    Payroll Provider: ${req.body.provider} \n
-    Payment Cycle: ${req.body.paymentCycle} \n
+    Payroll Provider: ${req.body.payrollProvider} \n
+    Payment Cycle: ${req.body.paymentCycle} `
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+app.post("/companyEnrollment3", (req, res) => {
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "New Company Enrollment",
+    text: `From: the previous email
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
@@ -208,10 +254,56 @@ app.post("/basicInfo1", (req, res) => {
     Company Name: ${req.body.CompanyName} \n
     Phone: ${req.body.CompanyPhone} \n
     State of Operation: ${req.body.State} \n
-    Number of Employees: ${req.body.EmployeeNumber} \n
+    Number of Employees: ${req.body.EmployeeNumber} `
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+app.post("/basicInfo2", (req, res) => {
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "New Account Created",
+    text: `From: the previous submission
     Do they have payroll: ${req.body.payroll} \n
     Payroll provider: ${req.body.provider} \n
-    How did they hear about SaveAway401k?: ${req.body.heardAbout} \n
+    How did they hear about SaveAway401k?: ${req.body.heardAbout} `
+  };
+
+  mailer
+    .sendMessage(message)
+    .then(() => {
+      res.json({
+        message: "MESSAGE SENT!"
+      });
+    })
+    .catch(error => {
+      res.status(500);
+      res.json({
+        error: error
+      });
+    });
+});
+
+app.post("/basicInfo3", (req, res) => {
+  const message = {
+    from: process.env.FROM_EMAIL,
+    to: process.env.TO_EMAIL,
+    subject: "New Account Created",
+    text: `From: the previous submission
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
