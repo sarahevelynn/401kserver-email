@@ -170,18 +170,25 @@ app.post("/companyEnrollment1", (req, res) => {
     Company EIN: ${req.body.companyEIN} \n
     Business Hours: ${req.body.businessHours} \n
     ______________________________________________
+              ***Form Section One***
+    ______________________________________________
     Auto Enroll: ${req.body.AutoEnroll} \n
     Enrollment Percentage: ${req.body.enrollmentPercentage} \n
     Plan Type: ${req.body.planType} \n
     Payroll Provider: ${req.body.provider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
     ______________________________________________
+              ***Form Section Two***
+    ______________________________________________
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
     Admin Phone: ${req.body.AdminPhone} \n
     Admin Email: ${req.body.AdminEmail} \n
-    Company Plan Status: ${req.body.PlanStatus}`
+    Company Plan Status: ${req.body.PlanStatus}
+    ______________________________________________
+              ***Form Section Three***
+    ______________________________________________`
   };
 
   mailer
