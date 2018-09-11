@@ -169,13 +169,13 @@ app.post("/companyEnrollment1", (req, res) => {
     Zip: ${req.body.signupAdressZip} \n
     Company EIN: ${req.body.companyEIN} \n
     Business Hours: ${req.body.businessHours} \n
-    <br />
+    ______________________________________________
     Auto Enroll: ${req.body.AutoEnroll} \n
     Enrollment Percentage: ${req.body.enrollmentPercentage} \n
     Plan Type: ${req.body.planType} \n
     Payroll Provider: ${req.body.provider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
-    <br />
+    ______________________________________________
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
