@@ -159,6 +159,9 @@ app.post("/companyEnrollment1", (req, res) => {
     subject: "New Company Enrollment - mid way",
     text: `From: ${req.body.signupEmail}\n
     Sent: ${new Date()} \n
+    _________________________________________________
+              ***Form Section One Below***
+    _________________________________________________
     Company Name: ${req.body.companyName} \n
     Account Person's Name: ${req.body.accountName} \n
     Company Phone: ${req.body.companyPhone} \n
@@ -169,26 +172,23 @@ app.post("/companyEnrollment1", (req, res) => {
     Zip: ${req.body.signupAdressZip} \n
     Company EIN: ${req.body.companyEIN} \n
     Business Hours: ${req.body.businessHours} \n
-    ______________________________________________
-              ***Form Section One***
-    ______________________________________________
+    _________________________________________________
+              ***Form Section Two Below***
+    _________________________________________________
     Auto Enroll: ${req.body.AutoEnroll} \n
     Enrollment Percentage: ${req.body.enrollmentPercentage} \n
     Plan Type: ${req.body.planType} \n
     Payroll Provider: ${req.body.provider} \n
     Payment Cycle: ${req.body.paymentCycle} \n
-    ______________________________________________
-              ***Form Section Two***
-    ______________________________________________
+    _________________________________________________
+              ***Form Section Three Below***
+    _________________________________________________
     Will this person be admin: ${req.body.Admin} \n
     If no, this is the admin's information (will be blank if yes):
     Admin Name: ${req.body.AdminName} \n
     Admin Phone: ${req.body.AdminPhone} \n
     Admin Email: ${req.body.AdminEmail} \n
-    Company Plan Status: ${req.body.PlanStatus}
-    ______________________________________________
-              ***Form Section Three***
-    ______________________________________________`
+    Company Plan Status: ${req.body.PlanStatus}`
   };
 
   mailer
