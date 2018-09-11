@@ -239,7 +239,7 @@ app.post("/basicInfo1", (req, res) => {
     _________________________________________________
               ***Confirmation of Account Creation***
     _________________________________________________
-    Did they agree to the terms and creat an account?${req.body.checked}`
+    Did they agree to the terms and creat an account?  ${req.body.checked}`
   };
 
   mailer
